@@ -48,7 +48,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc README TODO INSTALL NEWS COPYING ChangeLog
+%doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/pixmaps/%{name}/*
 %attr(0644,root,root) %{_applnkdir}/Utilities/*
