@@ -1,0 +1,11 @@
+diff -urN gnome-commander-1.1.6.orig/libgcmd/Makefile.am gnome-commander-1.1.6.new/libgcmd/Makefile.am
+--- gnome-commander-1.1.6.orig/libgcmd/Makefile.am	2003-11-29 05:05:49.000000000 +0100
++++ gnome-commander-1.1.6.new/libgcmd/Makefile.am	2004-07-20 14:06:44.245334008 +0200
+@@ -4,7 +4,6 @@
+ 	$(GNOMEUI_CFLAGS) \
+ 	$(GNOMEVFS_CFLAGS)
+ 
+-libdir = $(PACKAGE_LIB_DIR)
+ 
+ lib_LTLIBRARIES = libgcmd.la
+ 
