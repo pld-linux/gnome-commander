@@ -9,6 +9,8 @@ Source0:	http://savannah.nongnu.org/download/gcmd/gcmd.pkg/%{version}/%{name}-%{
 # Source0-md5:	ff6b1057a6132e686fdd4ed28c77594b
 URL:		http://savannah.gnu.org/projects/gcmd/
 BuildRequires:	GConf-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gdk-pixbuf-devel >= 0.8
 # glib-gettextize
 BuildRequires:	glib2-devel
