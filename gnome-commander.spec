@@ -6,6 +6,9 @@ Release:	0.1
 License:	GPL
 Group:		X11/Applications/File
 Source0:	http://freesoftware.fsf.org/download/gcmd/gcmd.pkg/%{version}/%{name}-%{version}.tar.gz
+BuildRequires:  gdk-pixbuf-devel >= 0.8
+BuildRequires:  GConf-devel
+BuildRequires:  gnome-libs-devel
 URL:		http://savannah.gnu.org/projects/gcmd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,9 +47,9 @@ install gnome-commander.desktop $RPM_BUILD_ROOT/%{_applnkdir}/Utilities/gnome-co
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc  README TODO INSTALL NEWS COPYING ChangeLog
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/pixmaps/%{name}/*.xpm
+%{_datadir}/pixmaps/%{name}/*
 %attr(0644,root,root) %{_applnkdir}/Utilities/*
