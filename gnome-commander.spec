@@ -25,13 +25,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 GNOME Commander is a filemanager that just like the classical Midnight
 commander lets you do everything with the keyboard. It can perform all
-standard fileoperations and some extra features like ftp support.
+standard fileoperations and some extra features like FTP support.
 
 %description -l pl
 GNOME Commander to zarz±dca plików, który podobnie do klasycznego
 Midnight Commandera umo¿liwia pe³n± obs³ugê przy pomocy klawiatury.
 Zapewnia wykonanie wszystkich typowych operacji na plikach, a tak¿e
-kilka dodatkowych jak np. klienta ftp.
+kilka dodatkowych jak np. klienta FTP.
 
 %prep
 %setup -q
