@@ -9,6 +9,7 @@ Source0:	http://freesoftware.fsf.org/download/gcmd/gcmd.pkg/%{version}/%{name}-%
 BuildRequires:	gdk-pixbuf-devel >= 0.8
 BuildRequires:	GConf-devel
 BuildRequires:	gnome-libs-devel
+BuildRequires:	gnome-vfs-devel
 URL:		http://savannah.gnu.org/projects/gcmd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
