@@ -1,3 +1,6 @@
+# TODO:
+# - broken on amd64 (installing plugins to /usr/lib, should /usr/lib64),
+#
 Summary:	A GNOME filemanager similar to the Midnight Commander
 Summary(pl):	Zarz±dca plików dla ¶rodowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
