@@ -3,7 +3,7 @@ Summary(pl):	Zarz±dca plików dla ¶rodowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
 Version:	1.1.6
 Release:	0.2
-License:	GPL
+License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-commander/1.1/%{name}-%{version}.tar.bz2
 # Source0-md5:	972e976ea01663f5b60e8a16721a5348
