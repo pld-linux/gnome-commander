@@ -7,13 +7,14 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://freesoftware.fsf.org/download/gcmd/gcmd.pkg/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	8e55dce6efab9cc00ee5c7ee51c4ddee
-BuildRequires:	gdk-pixbuf-devel >= 0.8
 BuildRequires:	GConf-devel
+BuildRequires:	gdk-pixbuf-devel >= 0.8
+# glib-gettextize
+BuildRequires:	glib2-devel
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gnome-vfs-devel
-URL:		http://savannah.gnu.org/projects/gcmd
+URL:		http://savannah.gnu.org/projects/gcmd/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 Gnome Commander is a filemanager that just like the classical Midnight
@@ -30,22 +31,22 @@ kilka dodatkowych jak np. klienta ftp
 %setup -q
 
 %build
-%{__gettextize}
-%{__aclocal} 
+glib-gettextize -c -f
+%{__aclocal}
 %{__automake}
 %{__autoconf}
-%configure2_13 \
-    --with-fam
+%configure \
+	--with-fam
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-install -d $RPM_BUILD_ROOT/%{_applnkdir}/Utilities
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
 %{__make} install \
         DESTDIR=$RPM_BUILD_ROOT
-install gnome-commander.desktop $RPM_BUILD_ROOT/%{_applnkdir}/Utilities/gnome-commander.desktop
+
+install gnome-commander.desktop $RPM_BUILD_ROOT%{_applnkdir}/Utilities/gnome-commander.desktop
 
 %find_lang %{name}
 
@@ -56,5 +57,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/pixmaps/%{name}/*
-%attr(0644,root,root) %{_applnkdir}/Utilities/*
+%{_pixmapsdir}/%{name}
+%{_applnkdir}/Utilities/*
