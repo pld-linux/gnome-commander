@@ -6,6 +6,7 @@ Release:	0.2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://freesoftware.fsf.org/download/gcmd/gcmd.pkg/%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	8e55dce6efab9cc00ee5c7ee51c4ddee
 BuildRequires:	gdk-pixbuf-devel >= 0.8
 BuildRequires:	GConf-devel
 BuildRequires:	gnome-libs-devel
