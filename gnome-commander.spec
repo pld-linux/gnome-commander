@@ -1,21 +1,22 @@
 Summary:	A GNOME filemanager similar to the Midnight Commander
 Summary(pl):	Zarz±dca plików dla ¶rodowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
-Version:	1.0.1
+Version:	1.1.6
 Release:	0.1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://savannah.nongnu.org/download/gcmd/gcmd.pkg/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	ff6b1057a6132e686fdd4ed28c77594b
-URL:		http://savannah.gnu.org/projects/gcmd/
-BuildRequires:	GConf-devel
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/1.1/%{name}-%{version}.tar.bz2
+# Source0-md5:	972e976ea01663f5b60e8a16721a5348
+Patch0:		%{name}-clist.patch
+URL:		http://www.nongnu.org/gcmd/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gdk-pixbuf-devel >= 0.8
-# glib-gettextize
 BuildRequires:	glib2-devel
-BuildRequires:	gnome-libs-devel
-BuildRequires:	gnome-vfs-devel
+BuildRequires:	gnome-vfs2-devel
+BuildRequires:	gtk+2-devel
+BuildRequires:	intltool
+BuildRequires:	libgnome-devel
+BuildRequires:	libgnomeui-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,14 +32,14 @@ kilka dodatkowych jak np. klienta ftp
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 glib-gettextize -c -f
 %{__aclocal}
 %{__automake}
 %{__autoconf}
-%configure \
-	--with-fam
+%configure
 %{__make}
 
 %install
@@ -48,7 +49,7 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 %{__make} install \
         DESTDIR=$RPM_BUILD_ROOT
 
-install gnome-commander.desktop $RPM_BUILD_ROOT%{_applnkdir}/Utilities/gnome-commander.desktop
+rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/{plugins/,}/*.{la,a}
 
 %find_lang %{name}
 
@@ -59,5 +60,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
+%dir %{_libdir}/%{name}
+%dir %{_libdir}/%{name}/plugins
+%attr(755,root,root) %{_libdir}/%{name}/lib*
+%attr(755,root,root) %{_libdir}/%{name}/plugins/lib*
 %{_pixmapsdir}/%{name}
-%{_applnkdir}/Utilities/*
+%{_desktopdir}/gnome-commander.desktop
