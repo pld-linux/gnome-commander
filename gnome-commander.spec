@@ -13,7 +13,6 @@ BuildRequires:	gnome-libs-devel
 URL:		http://savannah.gnu.org/projects/gcmd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
 
 %description
 Gnome Commander is a filemanager that just like the classical Midnight
