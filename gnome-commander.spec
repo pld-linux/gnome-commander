@@ -7,13 +7,13 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://savannah.nongnu.org/download/gcmd/gcmd.pkg/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	ef0152c3014689ba76c3b67609ec3c69
+URL:		http://savannah.gnu.org/projects/gcmd/
 BuildRequires:	GConf-devel
 BuildRequires:	gdk-pixbuf-devel >= 0.8
 # glib-gettextize
 BuildRequires:	glib2-devel
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gnome-vfs-devel
-URL:		http://savannah.gnu.org/projects/gcmd/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
