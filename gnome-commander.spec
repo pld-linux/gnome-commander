@@ -5,7 +5,7 @@ Version:	1.1.6
 Release:	0.2
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/1.1/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-commander/1.1/%{name}-%{version}.tar.bz2
 # Source0-md5:	972e976ea01663f5b60e8a16721a5348
 Patch0:		%{name}-clist.patch
 Patch1:		%{name}-desktop.patch
@@ -19,7 +19,7 @@ BuildRequires:	gtk+2-devel
 BuildRequires:	intltool
 BuildRequires:	libgnome-devel
 BuildRequires:	libgnomeui-devel
-Buildrequires:	libtool
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
