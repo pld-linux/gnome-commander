@@ -1,8 +1,8 @@
 Summary:	A Gnome filemanager similar to the Midnight Commander
 Summary(pl):	Zarz±dca plików dla ¶rodowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
-Version:	0.9.9
-Release:	1
+Version:	0.9.11
+Release:	0.2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://freesoftware.fsf.org/download/gcmd/gcmd.pkg/%{version}/%{name}-%{version}.tar.gz
@@ -30,7 +30,7 @@ kilka dodatkowych jak np. klienta ftp
 
 %build
 %{__gettextize}
-%{__aclocal} -I macros
+%{__aclocal} 
 %{__automake}
 %{__autoconf}
 %configure2_13 \
