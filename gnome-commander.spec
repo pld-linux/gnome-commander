@@ -2,10 +2,10 @@ Summary:	A Gnome filemanager similar to the Midnight Commander
 Summary(pl):	Zarz±dca plików dla ¶rodowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
 Version:	0.9.9
-Release:	0.1pre1cvs
+Release:	0.1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://freesoftware.fsf.org/download/gcmd/gcmd.pkg/%{version}/%{name}-cvs-latest.tar.bz2
+Source0:	http://freesoftware.fsf.org/download/gcmd/gcmd.pkg/%{version}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-configure.patch
 BuildRequires:	gdk-pixbuf-devel >= 0.8
 BuildRequires:	GConf-devel
@@ -26,8 +26,8 @@ Zapewnia wykonanie wszystkich typowych operacji na plikach, a tak¿e
 kilka dodatkowych jak np. klienta ftp
 
 %prep
-%setup -q -n %{name}
-%patch -p1
+%setup -q
+#%patch -p1
 
 %build
 %{__gettextize}
