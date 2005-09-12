@@ -1,0 +1,19 @@
+diff -urN gnome-commander-1.1.6.orig/configure.in gnome-commander-1.1.6.new/configure.in
+--- gnome-commander-1.1.6.orig/configure.in	2004-01-14 18:06:21.000000000 +0100
++++ gnome-commander-1.1.6.new/configure.in	2005-09-12 22:34:07.000000000 +0200
+@@ -184,13 +184,13 @@
+ 
+ 
+ dnl Set PACKAGE_LIB_DIR in config.h
+-PACKAGE_LIB_DIR="${PREFIX}/lib/${PACKAGE}"
++PACKAGE_LIB_DIR="${PREFIX}/lib64/${PACKAGE}"
+ AC_DEFINE_UNQUOTED(PACKAGE_LIB_DIR, "$PACKAGE_LIB_DIR", [libs location])
+ AC_SUBST(PACKAGE_LIB_DIR)
+ 
+ 
+ dnl Set PLUGIN_DIR in config.h
+-PLUGIN_DIR="${PREFIX}/lib/${PACKAGE}/plugins"
++PLUGIN_DIR="${PREFIX}/lib64/${PACKAGE}/plugins"
+ AC_DEFINE_UNQUOTED(PLUGIN_DIR, "$PLUGIN_DIR", "")
+ AC_SUBST(PLUGIN_DIR)
+ 
