@@ -1,11 +1,8 @@
-# TODO:
-# - broken on amd64 (installing plugins to /usr/lib, should /usr/lib64),
-#
 Summary:	A GNOME filemanager similar to the Midnight Commander
 Summary(pl):	Zarz±dca plików dla ¶rodowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
 Version:	1.1.6
-Release:	0.2
+Release:	0.3
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-commander/1.1/%{name}-%{version}.tar.bz2
@@ -13,6 +10,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-commander/1.1/%{name}-%{ve
 Patch0:		%{name}-clist.patch
 Patch1:		%{name}-desktop.patch
 Patch2:		%{name}-libdir.patch
+Patch3:		%{name}-lib64.patch
 URL:		http://www.nongnu.org/gcmd/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -41,6 +39,9 @@ kilka dodatkowych jak np. klienta FTP.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%if "%{_lib}" == "lib64"
+%patch3 -p1
+%endif
 
 %build
 glib-gettextize --copy --force
