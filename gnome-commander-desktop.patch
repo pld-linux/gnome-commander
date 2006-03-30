@@ -1,18 +1,22 @@
-diff -urN gnome-commander-1.1.6.orig/gnome-commander.desktop gnome-commander-1.1.6.new/gnome-commander.desktop
---- gnome-commander-1.1.6.orig/gnome-commander.desktop	2004-01-19 23:37:03.000000000 +0100
-+++ gnome-commander-1.1.6.new/gnome-commander.desktop	2004-07-20 21:09:53.168630992 +0200
-@@ -14,18 +14,19 @@
- Comment[cs]=Správce souborů se dvěma panely
- Comment[es]=Un administrador de archivos con dos paneles
- Comment[nl]=Bestandsbeheer met twee panelen
+--- gnome-commander.desktop.in	2006-02-12 21:18:09.000000000 +0100
++++ gnome-commander.desktop.in	2006-03-30 12:32:43.389822500 +0200
+@@ -1,14 +1,23 @@
+ [Desktop Entry]
+-_Name=GNOME Commander
+-_Comment=A two paned file manager
++Encoding=UTF-8
++Name=GNOME Commander
++Comment=A two paned file manager
++Comment[cs]=Správce souborů se dvěma panely
++Comment[es]=Un administrador de archivos con dos paneles
++Comment[nl]=Bestandsbeheer met twee panelen
 +Comment[pl]=Dwupanelowy zarządca plików
- Comment[pt]=Um gestor de ficheiros em dois paineis
- Comment[sr]=Управник датотекама са две површи
- Comment[sr@Latn]=Upravnik datotekama sa dve površi
- Comment[sv]=En alternativ filhanterare
++Comment[pt]=Um gestor de ficheiros em dois paineis
++Comment[sr]=Управник датотекама са две површи
++Comment[sr@Latn]=Upravnik datotekama sa dve površi
++Comment[sv]=En alternativ filhanterare
  Exec=gnome-commander
--Icon=gnome-commander/gcmd-icon1.png
-+Icon=gcmd-icon1.png
+ Icon=gnome-commander/gnome-commander.png
  Terminal=false
  MultipleArgs=false
  Type=Application
@@ -24,12 +28,3 @@ diff -urN gnome-commander-1.1.6.orig/gnome-commander.desktop gnome-commander-1.1
  X-GNOME-Bugzilla-Product=gnome-commander
  X-GNOME-Bugzilla-Component=application
 +# vi: encoding=utf-8
-diff -urN gnome-commander-1.1.6.orig/pixmaps/Makefile.am gnome-commander-1.1.6.new/pixmaps/Makefile.am
---- gnome-commander-1.1.6.orig/pixmaps/Makefile.am	2003-11-29 05:05:50.000000000 +0100
-+++ gnome-commander-1.1.6.new/pixmaps/Makefile.am	2004-07-20 21:09:21.000000000 +0200
-@@ -36,3 +36,5 @@
- 
- EXTRA_DIST = $(pixmaps_DATA)
- 
-+distpixmapdir = $(datadir)/pixmaps
-+distpixmap_DATA = gcmd-icon1.png
