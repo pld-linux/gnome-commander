@@ -1,16 +1,13 @@
 Summary:	A GNOME filemanager similar to the Midnight Commander
 Summary(pl):	Zarz±dca plików dla ¶rodowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
-Version:	1.1.6
-Release:	0.3
+Version:	1.1.7
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-commander/1.1/%{name}-%{version}.tar.bz2
-# Source0-md5:	972e976ea01663f5b60e8a16721a5348
-Patch0:		%{name}-clist.patch
-Patch1:		%{name}-desktop.patch
-Patch2:		%{name}-libdir.patch
-Patch3:		%{name}-lib64.patch
+# Source0-md5:	46e639a7869e8205c92c3ccbad63b075
+Patch0:		%{name}-desktop.patch
 URL:		http://www.nongnu.org/gcmd/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -36,12 +33,7 @@ kilka dodatkowych jak np. klienta FTP.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%if "%{_lib}" == "lib64"
-%patch3 -p1
-%endif
+%patch0 -p0
 
 %build
 glib-gettextize --copy --force
@@ -59,7 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
         DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/{%{name}/plugins/,}/*.{la,a}
+rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/{plugins/,}/*.{la,a}
 
 %find_lang %{name}
 
@@ -73,8 +65,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %dir %{_libdir}/%{name}
+%attr(755,root,root) %{_libdir}/%{name}/lib*.so*
 %dir %{_libdir}/%{name}/plugins
 %attr(755,root,root) %{_libdir}/%{name}/plugins/lib*.so*
 %{_pixmapsdir}/*
