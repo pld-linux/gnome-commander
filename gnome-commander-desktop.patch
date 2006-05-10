@@ -1,30 +1,16 @@
---- gnome-commander.desktop.in	2006-02-12 21:18:09.000000000 +0100
-+++ gnome-commander.desktop.in	2006-03-30 12:32:43.389822500 +0200
-@@ -1,14 +1,23 @@
- [Desktop Entry]
--_Name=GNOME Commander
--_Comment=A two paned file manager
-+Encoding=UTF-8
-+Name=GNOME Commander
-+Comment=A two paned file manager
-+Comment[cs]=Správce souborů se dvěma panely
-+Comment[es]=Un administrador de archivos con dos paneles
-+Comment[nl]=Bestandsbeheer met twee panelen
-+Comment[pl]=Dwupanelowy zarządca plików
-+Comment[pt]=Um gestor de ficheiros em dois paineis
-+Comment[sr]=Управник датотекама са две површи
-+Comment[sr@Latn]=Upravnik datotekama sa dve površi
-+Comment[sv]=En alternativ filhanterare
+diff -aurN gnome-commander-1.2.0.orig/data/gnome-commander.desktop.in.in gnome-commander-1.2.0/data/gnome-commander.desktop.in.in
+--- gnome-commander-1.2.0.orig/data/gnome-commander.desktop.in.in	2006-02-13 12:45:12.000000000 +0100
++++ gnome-commander-1.2.0/data/gnome-commander.desktop.in.in	2006-05-10 22:34:49.948951608 +0200
+@@ -3,10 +3,10 @@
+ _Name=GNOME Commander
+ _Comment=A two paned file manager
  Exec=gnome-commander
- Icon=gnome-commander/gnome-commander.png
+-Icon=gnome-commander.png
++Icon=gnome-commander
  Terminal=false
- MultipleArgs=false
  Type=Application
--DocPath=gnome-commander/index.html
--Categories=Application;Utility;
-+Categories=GTK;GNOME;Utility;FileManager;
+-Categories=GNOME;GTK;Application;Utility;FileManager;
++Categories=GNOME;GTK;Utility;FileManager;
  StartupNotify=true
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=gnome-commander
- X-GNOME-Bugzilla-Component=application
-+# vi: encoding=utf-8
