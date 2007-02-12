@@ -1,5 +1,5 @@
 Summary:	A GNOME filemanager similar to the Midnight Commander
-Summary(pl):	Zarz±dca plików dla ¶rodowiska GNOME w stylu Midnight Commandera
+Summary(pl.UTF-8):   ZarzÄ…dca plikÃ³w dla Å›rodowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
 Version:	1.2.0
 Release:	1
@@ -24,10 +24,10 @@ GNOME Commander is a filemanager that just like the classical Midnight
 commander lets you do everything with the keyboard. It can perform all
 standard fileoperations and some extra features like FTP support.
 
-%description -l pl
-GNOME Commander to zarz±dca plików, który podobnie do klasycznego
-Midnight Commandera umo¿liwia pe³n± obs³ugê przy pomocy klawiatury.
-Zapewnia wykonanie wszystkich typowych operacji na plikach, a tak¿e
+%description -l pl.UTF-8
+GNOME Commander to zarzÄ…dca plikÃ³w, ktÃ³ry podobnie do klasycznego
+Midnight Commandera umoÅ¼liwia peÅ‚nÄ… obsÅ‚ugÄ™ przy pomocy klawiatury.
+Zapewnia wykonanie wszystkich typowych operacji na plikach, a takÅ¼e
 kilka dodatkowych jak np. klienta FTP.
 
 %prep
