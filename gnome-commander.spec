@@ -1,5 +1,5 @@
 Summary:	A GNOME filemanager similar to the Midnight Commander
-Summary(pl.UTF-8):   Zarządca plików dla środowiska GNOME w stylu Midnight Commandera
+Summary(pl.UTF-8):	Zarządca plików dla środowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
 Version:	1.2.0
 Release:	1
