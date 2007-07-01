@@ -40,7 +40,7 @@ kilka dodatkowych jak np. klienta FTP.
 %{__glib_gettextize}
 %{__libtoolize}
 %{__intltoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
 %configure \
