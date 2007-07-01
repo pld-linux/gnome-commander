@@ -13,6 +13,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-doc-utils
 BuildRequires:	gtk+2-devel >= 2:2.6.0
+BuildRequires:	id3lib-devel
 BuildRequires:	intltool >= 0.31
 BuildRequires:	libgnomeui-devel >= 2.0.0
 BuildRequires:	libtool
