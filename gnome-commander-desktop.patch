@@ -1,12 +1,8 @@
 diff -aurN gnome-commander-1.2.0.orig/data/gnome-commander.desktop.in.in gnome-commander-1.2.0/data/gnome-commander.desktop.in.in
 --- gnome-commander-1.2.0.orig/data/gnome-commander.desktop.in.in	2006-02-13 12:45:12.000000000 +0100
 +++ gnome-commander-1.2.0/data/gnome-commander.desktop.in.in	2006-05-10 22:34:49.948951608 +0200
-@@ -3,10 +3,10 @@
- _Name=GNOME Commander
- _Comment=A two paned file manager
- Exec=gnome-commander
--Icon=gnome-commander.png
-+Icon=gnome-commander
+@@ -6,7 +6,7 @@
+ Icon=gnome-commander
  Terminal=false
  Type=Application
 -Categories=GNOME;GTK;Application;Utility;FileManager;
