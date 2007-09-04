@@ -1,0 +1,33 @@
+--- gnome-commander-1.2.4/src/Makefile.am.orig	2007-04-30 12:41:34.000000000 +0200
++++ gnome-commander-1.2.4/src/Makefile.am	2007-09-04 16:10:23.000000000 +0200
+@@ -8,6 +8,7 @@
+ 	$(GNOMEUI_CFLAGS) \
+ 	$(GNOMEVFS_CFLAGS) \
+ 	$(PYTHON_CFLAGS) \
++	$(IPTCDATA_CFLAGS) \
+ 	-DPLUGIN_DIR=\""$(libdir)/$(PACKAGE)/plugins"\"
+ 
+ bin_PROGRAMS = gnome-commander gcmd-block
+@@ -88,6 +89,10 @@
+ endif
+ 
+ gnome_commander_LDADD = \
++	$(top_builddir)/libgcmd/libgcmd.la \
++	tags/libgcmd-tags.a \
++	tags/id3lib/libgcmd-id3lib.a \
++	libgviewer/libgviewer.a \
+ 	$(GNOMEUI_LIBS) \
+ 	$(GNOMEVFS_LIBS) \
+ 	$(EXIF_LIBS) \
+@@ -97,10 +102,7 @@
+ 	$(GSF_LIBS) \
+ 	$(PYTHON_LIBS) \
+ 	$(PYTHON_EXTRA_LIBS) \
+-	$(top_builddir)/libgcmd/libgcmd.la \
+-	tags/libgcmd-tags.a \
+-	tags/id3lib/libgcmd-id3lib.a \
+-	libgviewer/libgviewer.a
++	$(IPTCDATA_LIBS)
+ 
+ gnome_commander_LDFLAGS = \
+ 	$(GNOMEUI_LIBS) \
