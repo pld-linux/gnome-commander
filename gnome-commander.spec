@@ -20,6 +20,7 @@ BuildRequires:	libgnomeui-devel >= 2.0.0
 BuildRequires:	libiptcdata-devel
 BuildRequires:	libtool
 BuildRequires:	libxslt-progs
+BuildRequires:	rpm-perlprov
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
