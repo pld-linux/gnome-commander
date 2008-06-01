@@ -5,40 +5,27 @@
  	$(GNOMEVFS_CFLAGS) \
  	$(PYTHON_CFLAGS) \
 +	$(IPTCDATA_CFLAGS) \
+ 	-DDATADIR=\""$(datadir)"\"\
  	-DPLUGIN_DIR=\""$(libdir)/$(PACKAGE)/plugins"\"
  
- bin_PROGRAMS = gnome-commander gcmd-block
-@@ -88,6 +89,10 @@
+@@ -92,6 +93,9 @@
  endif
  
  gnome_commander_LDADD = \
 +	$(top_builddir)/libgcmd/libgcmd.la \
 +	tags/libgcmd-tags.a \
-+	tags/id3lib/libgcmd-id3lib.a \
-+	libgviewer/libgviewer.a \
- 	$(GNOMEUI_LIBS) \
- 	$(GNOMEVFS_LIBS) \
- 	$(EXIF_LIBS) \
-@@ -97,10 +102,7 @@
++	intviewer/libgviewer.a \
+	$(GNOMEUI_LIBS) \
+	$(GNOMEVFS_LIBS) \
+	$(EXIV2_LIBS) \
+@@ -101,10 +105,8 @@
  	$(GSF_LIBS) \
  	$(PYTHON_LIBS) \
  	$(PYTHON_EXTRA_LIBS) \
 -	$(top_builddir)/libgcmd/libgcmd.la \
 -	tags/libgcmd-tags.a \
--	tags/id3lib/libgcmd-id3lib.a \
--	libgviewer/libgviewer.a
+-	intviewer/libgviewer.a
 +	$(IPTCDATA_LIBS)
  
  gnome_commander_LDFLAGS = \
  	$(GNOMEUI_LIBS) \
---- gnome-commander-1.2.4/tests/gviewer/Makefile.am~	2007-03-12 00:54:44.000000000 +0100
-+++ gnome-commander-1.2.4/tests/gviewer/Makefile.am	2007-09-04 16:19:39.000000000 +0200
-@@ -7,7 +7,7 @@
- 
- noinst_PROGRAMS = fileops inputmodes datapresentation textrenderer imagerenderer dualrenderer viewerwidget viewerwindow bm_byte_test bm_chartype_test utils_test search_dlg_test
- 
--TESTLIBS = $(GLIB_LIBS) $(GTK_LIBS) $(GNOMEUI_LIBS) $(top_builddir)/src/libgviewer/libgviewer.a
-+TESTLIBS = $(top_builddir)/src/libgviewer/libgviewer.a $(GLIB_LIBS) $(GTK_LIBS) $(GNOMEUI_LIBS)
- 
- fileops_SOURCES = fileops.c
- fileops_LDADD = $(TESTLIBS)
