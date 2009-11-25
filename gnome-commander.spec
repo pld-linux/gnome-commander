@@ -13,6 +13,7 @@ Patch2:		%{name}-configure.in.patch
 URL:		http://www.nongnu.org/gcmd/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	id3lib-devel
@@ -21,6 +22,7 @@ BuildRequires:	libgnomeui-devel >= 2.0.0
 BuildRequires:	libiptcdata-devel
 BuildRequires:	libtool
 BuildRequires:	libxslt-progs
+BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
