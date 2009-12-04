@@ -1,15 +1,14 @@
 Summary:	A GNOME filemanager similar to the Midnight Commander
 Summary(pl.UTF-8):	Zarządca plików dla środowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
-Version:	1.2.7
+Version:	1.2.8.4
 Release:	1
-License:	GPL v2
+License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-commander/1.2/%{name}-%{version}.tar.bz2
-# Source0-md5:	7b0d1d50fda548be6600696bc752b6de
+# Source0-md5:	cca72a8c2f13bf47d5aaf3c2aad53eb2
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-as-needed.patch
-Patch2:		%{name}-configure.in.patch
 URL:		http://www.nongnu.org/gcmd/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -43,7 +42,6 @@ kilka dodatkowych jak np. klienta FTP.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %{__glib_gettextize}
