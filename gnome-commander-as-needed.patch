@@ -1,5 +1,5 @@
---- gnome-commander-1.2.4/src/Makefile.am.orig	2007-04-30 12:41:34.000000000 +0200
-+++ gnome-commander-1.2.4/src/Makefile.am	2007-09-04 16:10:23.000000000 +0200
+--- gnome-commander-1.2.8.4/src/Makefile.am~	2009-12-03 18:08:08.000000000 +0000
++++ gnome-commander-1.2.8.4/src/Makefile.am	2009-12-04 10:49:30.875101992 +0000
 @@ -8,6 +8,7 @@
  	$(GNOMEUI_CFLAGS) \
  	$(GNOMEVFS_CFLAGS) \
@@ -8,21 +8,23 @@
  	-DDATADIR=\""$(datadir)"\"\
  	-DPLUGIN_DIR=\""$(libdir)/$(PACKAGE)/plugins"\"
  
-@@ -92,6 +93,9 @@
+@@ -99,6 +100,10 @@
  endif
  
  gnome_commander_LDADD = \
 +	$(top_builddir)/libgcmd/libgcmd.la \
++	dialogs/libgcmd-dialogs.a \
 +	tags/libgcmd-tags.a \
 +	intviewer/libgviewer.a \
-	$(GNOMEUI_LIBS) \
-	$(GNOMEVFS_LIBS) \
-	$(EXIV2_LIBS) \
-@@ -101,10 +105,8 @@
- 	$(GSF_LIBS) \
+ 	$(GNOMEUI_LIBS) \
+ 	$(GNOMEVFS_LIBS) \
+ 	$(EXIV2_LIBS) \
+@@ -108,10 +113,7 @@
+ 	$(POPPLER_LIBS) \
  	$(PYTHON_LIBS) \
  	$(PYTHON_EXTRA_LIBS) \
 -	$(top_builddir)/libgcmd/libgcmd.la \
+-	dialogs/libgcmd-dialogs.a \
 -	tags/libgcmd-tags.a \
 -	intviewer/libgviewer.a
 +	$(IPTCDATA_LIBS)
