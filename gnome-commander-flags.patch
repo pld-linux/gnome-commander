@@ -1,0 +1,13 @@
+--- gnome-commander-1.2.8.6/libgcmd/Makefile.am~	2010-03-04 21:06:22.000000000 +0100
++++ gnome-commander-1.2.8.6/libgcmd/Makefile.am	2010-06-13 19:06:12.175915557 +0200
+@@ -3,7 +3,9 @@
+ AM_CPPFLAGS = \
+ 	$(CC_WARNINGS) \
+ 	$(GNOMEUI_CFLAGS) \
+-	$(GNOMEVFS_CFLAGS)
++	$(GNOMEVFS_CFLAGS) \
++	$(GNOME_CFLAGS) \
++	$(GTK_CFLAGS)
+ 
+ pkglib_LTLIBRARIES = libgcmd.la
+ 
