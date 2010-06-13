@@ -1,0 +1,4 @@
+- 1.2.8.6
+- pass gtk and gnome CFLAGS by libgcmd (-flags.patch)
+- BR: libgnome-keyring-devel
+- -desktop patch applied upstream
