@@ -7,8 +7,7 @@ License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-commander/1.2/%{name}-%{version}.tar.bz2
 # Source0-md5:	0ff2cd358e1dc67ddea6aa9314b84e5c
-Patch0:		%{name}-as-needed.patch
-Patch1:		%{name}-flags.patch
+Patch0:		%{name}-flags.patch
 URL:		http://www.nongnu.org/gcmd/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -43,7 +42,6 @@ kilka dodatkowych jak np. klienta FTP.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__glib_gettextize}
