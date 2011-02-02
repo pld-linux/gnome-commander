@@ -11,24 +11,26 @@ Patch0:		%{name}-flags.patch
 URL:		http://www.nongnu.org/gcmd/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	chmlib-devel
 BuildRequires:	docbook-dtd412-xml
+BuildRequires:	exiv2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils
 BuildRequires:	gtk+2-devel >= 2:2.6.0
-BuildRequires:	id3lib-devel
 BuildRequires:	intltool >= 0.31
-BuildRequires:	libcanberra-devel
 BuildRequires:	libgnome-keyring-devel
 BuildRequires:	libgnomeui-devel >= 2.0.0
-BuildRequires:	libiptcdata-devel
 BuildRequires:	libtool
 BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig
-BuildRequires:	rpm-perlprov
+BuildRequires:	poppler-devel
+BuildRequires:	python-devel
+BuildRequires:	taglib-devel
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+# symbol main_win_widget is provided by gnome-commander binary
 %define		skip_post_check_so	libgcmd.so.*
 
 %description
