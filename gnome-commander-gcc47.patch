@@ -1,0 +1,25 @@
+diff -uNr gnome-commander-1.2.8.15.old/src/dict.h gnome-commander-1.2.8.15/src/dict.h
+--- gnome-commander-1.2.8.15.old/src/dict.h	2011-11-08 00:26:25.000000000 +0100
++++ gnome-commander-1.2.8.15/src/dict.h	2012-09-07 12:49:19.238247858 +0200
+@@ -55,8 +55,8 @@
+ template <typename KEY, typename VAL>
+ inline void DICT<KEY,VAL>::add(const KEY k, const VAL &v)
+ {
+-    std::pair<typename KEY_COLL::iterator,bool> k_pos = k_coll.insert(make_pair(k,(const VAL *) NULL));
+-    std::pair<typename VAL_COLL::iterator,bool> v_pos = v_coll.insert(make_pair(v,(const KEY *) NULL));
++    std::pair<typename KEY_COLL::iterator,bool> k_pos = k_coll.insert(std::make_pair(k,(const VAL *) NULL));
++    std::pair<typename VAL_COLL::iterator,bool> v_pos = v_coll.insert(std::make_pair(v,(const KEY *) NULL));
+ 
+     if (k_pos.second)
+         k_pos.first->second = &v_pos.first->first;
+@@ -114,8 +114,8 @@
+ template <typename T>
+ inline void DICT<T,T>::add(const T k, const T &v)
+ {
+-    std::pair<typename T_COLL::iterator,bool> k_pos = t_coll.insert(make_pair(k,(T *) NULL));
+-    std::pair<typename T_COLL::iterator,bool> v_pos = t_coll.insert(make_pair(v,(T *) NULL));
++    std::pair<typename T_COLL::iterator,bool> k_pos = t_coll.insert(std::make_pair(k,(T *) NULL));
++    std::pair<typename T_COLL::iterator,bool> v_pos = t_coll.insert(std::make_pair(v,(T *) NULL));
+ 
+     if (k_pos.second)
+         k_pos.first->second = &v_pos.first->first;
