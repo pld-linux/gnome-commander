@@ -12,6 +12,7 @@ Patch1:		%{name}-1.2.8.15-poppler020.patch
 Patch2:		%{name}-gcc47.patch
 Patch3:		%{name}-format-security.patch
 Patch4:		%{name}-am.patch
+Patch5:		%{name}-const-cast.patch
 URL:		http://www.nongnu.org/gcmd/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -57,6 +58,7 @@ kilka dodatkowych jak np. klienta FTP.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p0
+%patch5 -p1
 
 %build
 %{__glib_gettextize}
