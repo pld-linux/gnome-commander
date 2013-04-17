@@ -1,0 +1,11 @@
+--- configure.in~	2013-04-17 15:41:41.649305953 +0100
++++ configure.in	2013-04-17 15:43:19.396804363 +0100
+@@ -7,7 +7,7 @@
+ GNOME_DOC_INIT
+ 
+ AM_MAINTAINER_MODE
+-AM_CONFIG_HEADER(config.h)
++AC_CONFIG_HEADERS([config.h])
+ 
+ AC_GNU_SOURCE
+ 
