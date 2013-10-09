@@ -1,0 +1,10 @@
+--- gnome-commander-1.2.8.15/src/tags/gnome-cmd-tags-doc.cc.newgsf	2011-12-07 04:10:29.000000000 +0900
++++ gnome-commander-1.2.8.15/src/tags/gnome-cmd-tags-doc.cc	2013-07-01 17:49:04.126488384 +0900
+@@ -48,6 +48,7 @@
+ #include <gsf/gsf-msole-utils.h>
+ #include <gsf/gsf-opendoc-utils.h>
+ #include <gsf/gsf-utils.h>
++#include <gsf/gsf-doc-meta-data.h>
+ #endif
+ 
+ using namespace std;
