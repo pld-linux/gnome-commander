@@ -67,6 +67,7 @@ kilka dodatkowych jak np. klienta FTP.
 %{__libtoolize}
 %{__intltoolize}
 %{__aclocal} -I m4
+%{__autoheader}
 %{__autoconf}
 %{__automake}
 %configure \
