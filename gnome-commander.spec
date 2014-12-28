@@ -20,7 +20,7 @@ BuildRequires:	automake
 BuildRequires:	chmlib-devel
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	exiv2-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnome-doc-utils
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	intltool >= 0.31
