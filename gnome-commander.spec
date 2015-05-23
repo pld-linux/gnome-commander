@@ -1,17 +1,17 @@
 Summary:	A GNOME filemanager similar to the Midnight Commander
 Summary(pl.UTF-8):	Zarządca plików dla środowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
-Version:	1.2.8.17
+Version:	1.4.6
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-commander/1.2/%{name}-%{version}.tar.xz
-# Source0-md5:	9e1fe09fc965f54d706895fecb2b06f4
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-commander/1.4/%{name}-%{version}.tar.xz
+# Source0-md5:	9029f0c0c423ff40b82b6e13ad8e95aa
 Patch0:		%{name}-flags.patch
 Patch1:		%{name}-am.patch
 Patch2:		%{name}-gsf.patch
 URL:		http://www.nongnu.org/gcmd/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	chmlib-devel
 BuildRequires:	docbook-dtd412-xml
@@ -24,21 +24,27 @@ BuildRequires:	gnome-vfs2-devel >= 2.0.0
 BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libgnome-devel >= 2.0.0
-BuildRequires:	libgnomeui-devel >= 2.0.0
+BuildRequires:	libgnome-keyring-devel >= 2.22
+BuildRequires:	libgnomeui-devel >= 2.4.0
 BuildRequires:	libgsf-devel >= 1.12.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
+BuildRequires:	libunique-devel >= 0.9.3
 BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig
-BuildRequires:	poppler-devel >= 0.6
-BuildRequires:	python-devel >= 1:2.4
+BuildRequires:	poppler-devel >= 0.18
+BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	taglib-devel >= 1.4
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	exiv2 >= 0.14
 Requires:	glib2 >= 1:2.6.0
 Requires:	gtk+2 >= 2:2.8.0
+Requires:	libgnome-keyring >= 2.22
+Requires:	libgnomeui >= 2.4.0
 Requires:	libgsf >= 1.12.0
+Requires:	libunique >= 0.9.3
+Requires:	poppler >= 0.18
 Requires:	taglib >= 1.4
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -87,7 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__mv} $RPM_BUILD_ROOT%{_localedir}/sr@{Latn,latin}
 
-%find_lang %{name} --with-gnome --all-name
+%find_lang %{name} --with-gnome --with-omf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -105,8 +111,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/%{name}/lib*.so*
 %{_libdir}/%{name}/plugins/*.py*
 %attr(755,root,root) %{_libdir}/%{name}/plugins/lib*.so*
+%{_datadir}/appdata/gnome-commander.appdata.xml
 %{_pixmapsdir}/gnome-commander.png
 %{_pixmapsdir}/gnome-commander
 %{_desktopdir}/gnome-commander.desktop
 %{_mandir}/man1/gnome-commander.1*
-%{_omf_dest_dir}/%{name}
