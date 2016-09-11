@@ -37,7 +37,7 @@ BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	taglib-devel >= 1.4
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	exiv2 >= 0.14
+Requires:	exiv2-libs >= 0.14
 Requires:	glib2 >= 1:2.6.0
 Requires:	gtk+2 >= 2:2.8.0
 Requires:	libgnome-keyring >= 2.22
