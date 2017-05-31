@@ -1,12 +1,12 @@
 Summary:	A GNOME filemanager similar to the Midnight Commander
 Summary(pl.UTF-8):	Zarządca plików dla środowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
-Version:	1.4.8
+Version:	1.6.4
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-commander/1.4/%{name}-%{version}.tar.xz
-# Source0-md5:	f999e5c52f819213955ecb1ec86ecfd0
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-commander/1.6/%{name}-%{version}.tar.xz
+# Source0-md5:	753c8ae940229085871aec17cec1dae5
 Patch0:		%{name}-flags.patch
 Patch1:		%{name}-am.patch
 Patch2:		%{name}-gsf.patch
@@ -18,15 +18,15 @@ BuildRequires:	docbook-dtd412-xml
 BuildRequires:	exiv2-devel >= 0.14
 BuildRequires:	flex
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.6.0
+BuildRequires:	glib2-devel >= 1:2.44.0
 BuildRequires:	gnome-doc-utils
 BuildRequires:	gnome-vfs2-devel >= 2.0.0
 BuildRequires:	gtk+2-devel >= 2:2.8.0
-BuildRequires:	intltool >= 0.35.0
+BuildRequires:	intltool >= 0.50.1
 BuildRequires:	libgnome-devel >= 2.0.0
 BuildRequires:	libgnome-keyring-devel >= 2.22
 BuildRequires:	libgnomeui-devel >= 2.4.0
-BuildRequires:	libgsf-devel >= 1.12.0
+BuildRequires:	libgsf-devel >= 1.14.26
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	libunique-devel >= 0.9.3
@@ -34,15 +34,18 @@ BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig
 BuildRequires:	poppler-devel >= 0.18
 BuildRequires:	python-devel >= 1:2.5
+BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	taglib-devel >= 1.4
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires(post,postun):	/sbin/ldconfig
+Requires(post,postun):	glib2 >= 1:2.44.0
 Requires:	exiv2-libs >= 0.14
-Requires:	glib2 >= 1:2.6.0
+Requires:	glib2 >= 1:2.44.0
 Requires:	gtk+2 >= 2:2.8.0
 Requires:	libgnome-keyring >= 2.22
 Requires:	libgnomeui >= 2.4.0
-Requires:	libgsf >= 1.12.0
+Requires:	libgsf >= 1.14.26
 Requires:	libunique >= 0.9.3
 Requires:	poppler >= 0.18
 Requires:	taglib >= 1.4
@@ -96,8 +99,13 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
+%post
+/sbin/ldconfig
+%glib_compile_schemas
+
+%postun
+/sbin/ldconfig
+%glib_compile_schemas
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -110,6 +118,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/%{name}/plugins/*.py*
 %attr(755,root,root) %{_libdir}/%{name}/plugins/lib*.so*
 %{_datadir}/appdata/gnome-commander.appdata.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.gnome-commander.enums.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.gnome-commander.gschema.xml
 %{_datadir}/gnome-commander
 %{_pixmapsdir}/gnome-commander.png
 %{_pixmapsdir}/gnome-commander
