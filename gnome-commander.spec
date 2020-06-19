@@ -1,12 +1,12 @@
 Summary:	A GNOME filemanager similar to the Midnight Commander
 Summary(pl.UTF-8):	Zarządca plików dla środowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
-Version:	1.10.2
+Version:	1.10.3
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-commander/1.10/%{name}-%{version}.tar.xz
-# Source0-md5:	e1ce66c5e64972943fcb51a3a9a74731
+# Source0-md5:	7dd034567c14cfd49ec60f722ecd7368
 Patch0:		%{name}-flags.patch
 Patch1:		%{name}-am.patch
 Patch2:		%{name}-gsf.patch
@@ -20,10 +20,7 @@ BuildRequires:	flex
 BuildRequires:	gettext-tools >= 0.19.7
 BuildRequires:	glib2-devel >= 1:2.44.0
 BuildRequires:	gnome-vfs2-devel >= 2.0.0
-BuildRequires:	gtk+2-devel >= 2:2.18.0
-BuildRequires:	libgnome-devel >= 2.0.0
-BuildRequires:	libgnome-keyring-devel >= 2.22
-BuildRequires:	libgnomeui-devel >= 2.4.0
+BuildRequires:	gtk+2-devel >= 2:2.24.0
 BuildRequires:	libgsf-devel >= 1.14.26
 BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	libtool >= 2:2
@@ -40,7 +37,7 @@ Requires(post,postun):	/sbin/ldconfig
 Requires(post,postun):	glib2 >= 1:2.44.0
 Requires:	exiv2-libs >= 0.14
 Requires:	glib2 >= 1:2.44.0
-Requires:	gtk+2 >= 2:2.18.0
+Requires:	gtk+2 >= 2:2.24.0
 Requires:	libgnome-keyring >= 2.22
 Requires:	libgnomeui >= 2.4.0
 Requires:	libgsf >= 1.14.26
@@ -76,7 +73,6 @@ kilka dodatkowych jak np. klienta FTP.
 %{__autoheader}
 %{__automake}
 %configure \
-	--disable-scrollkeeper \
 	--disable-static
 %{__make}
 
@@ -88,7 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/%{name}/{plugins/,}*.la
 
-%find_lang %{name} --with-gnome --with-omf
+%find_lang %{name} --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -110,10 +106,10 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/%{name}/plugins
 %attr(755,root,root) %{_libdir}/%{name}/libgcmd.so*
 %attr(755,root,root) %{_libdir}/%{name}/plugins/libfileroller.so
-%{_datadir}/appdata/gnome-commander.appdata.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-commander.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-commander.gschema.xml
 %{_datadir}/gnome-commander
+%{_datadir}/metainfo/gnome-commander.appdata.xml
 %{_desktopdir}/gnome-commander.desktop
 %{_pixmapsdir}/gnome-commander.svg
 %{_pixmapsdir}/gnome-commander
