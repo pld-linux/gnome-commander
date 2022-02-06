@@ -1,24 +1,23 @@
 Summary:	A GNOME filemanager similar to the Midnight Commander
 Summary(pl.UTF-8):	Zarządca plików dla środowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
-Version:	1.12.3.1
+Version:	1.14.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	https://download.gnome.org/sources/gnome-commander/1.12/%{name}-%{version}.tar.xz
-# Source0-md5:	f88ba89a6baaf901f45728d19e04a20e
+Source0:	https://download.gnome.org/sources/gnome-commander/1.14/%{name}-%{version}.tar.xz
+# Source0-md5:	4c74efb40b28ab7e9d189c807c04ca32
 Patch0:		%{name}-flags.patch
-Patch1:		%{name}-am.patch
-Patch2:		%{name}-gsf.patch
+Patch1:		%{name}-gsf.patch
 URL:		https://gcmd.github.io/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	chmlib-devel
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	exiv2-devel >= 0.14
-BuildRequires:	flex
+BuildRequires:	flex >= 2.0.0
 BuildRequires:	gettext-tools >= 0.19.7
-BuildRequires:	glib2-devel >= 1:2.44.0
+BuildRequires:	glib2-devel >= 1:2.70.0
 BuildRequires:	gnome-vfs2-devel >= 2.0.0
 BuildRequires:	gtk+2-devel >= 2:2.24.0
 BuildRequires:	libgsf-devel >= 1.14.26
@@ -34,9 +33,9 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	/sbin/ldconfig
-Requires(post,postun):	glib2 >= 1:2.44.0
+Requires(post,postun):	glib2 >= 1:2.70.0
 Requires:	exiv2-libs >= 0.14
-Requires:	glib2 >= 1:2.44.0
+Requires:	glib2 >= 1:2.70.0
 Requires:	gtk+2 >= 2:2.24.0
 Requires:	libgnome-keyring >= 2.22
 Requires:	libgnomeui >= 2.4.0
@@ -64,7 +63,6 @@ kilka dodatkowych jak np. klienta FTP.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %{__libtoolize}
@@ -106,8 +104,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/%{name}/plugins/libfileroller.so
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-commander.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-commander.gschema.xml
-%{_datadir}/metainfo/gnome-commander.appdata.xml
-%{_desktopdir}/gnome-commander.desktop
+%{_datadir}/metainfo/org.gnome.gnome-commander.appdata.xml
+%{_desktopdir}/org.gnome.gnome-commander.desktop
 %{_pixmapsdir}/gnome-commander.svg
 %{_pixmapsdir}/gnome-commander
 %{_mandir}/man1/gnome-commander.1*
