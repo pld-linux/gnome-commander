@@ -1,12 +1,12 @@
 Summary:	A GNOME filemanager similar to the Midnight Commander
 Summary(pl.UTF-8):	Zarządca plików dla środowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
-Version:	1.14.1
+Version:	1.14.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	https://download.gnome.org/sources/gnome-commander/1.14/%{name}-%{version}.tar.xz
-# Source0-md5:	678a9cf1156bcca766b80258f0d2c229
+# Source0-md5:	9fcd852ddb04aef8d9664690f1f329f2
 Patch0:		%{name}-flags.patch
 Patch1:		%{name}-gsf.patch
 URL:		https://gcmd.github.io/
