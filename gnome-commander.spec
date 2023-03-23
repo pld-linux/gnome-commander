@@ -1,32 +1,27 @@
 Summary:	A GNOME filemanager similar to the Midnight Commander
 Summary(pl.UTF-8):	Zarządca plików dla środowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
-Version:	1.14.3
+Version:	1.16.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	https://download.gnome.org/sources/gnome-commander/1.14/%{name}-%{version}.tar.xz
-# Source0-md5:	0fa6b29e34c0418deaaa81dfc36e9be2
-Patch0:		%{name}-flags.patch
+Source0:	https://download.gnome.org/sources/gnome-commander/1.16/%{name}-%{version}.tar.xz
+# Source0-md5:	41629218561b078c5df7e9a525e23215
 Patch1:		%{name}-gsf.patch
 URL:		https://gcmd.github.io/
-BuildRequires:	autoconf >= 2.50
-BuildRequires:	automake
-BuildRequires:	chmlib-devel
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	exiv2-devel >= 0.14
-BuildRequires:	flex >= 2.0.0
+BuildRequires:	flex >= 2.6.0
 BuildRequires:	gettext-tools >= 0.19.7
 BuildRequires:	glib2-devel >= 1:2.70.0
-BuildRequires:	gnome-vfs2-devel >= 2.0.0
 BuildRequires:	gtk+2-devel >= 2:2.24.0
 BuildRequires:	libgsf-devel >= 1.14.26
 BuildRequires:	libstdc++-devel >= 6:4.7
-BuildRequires:	libtool >= 2:2
 BuildRequires:	libunique-devel >= 0.9.3
-BuildRequires:	libxslt-progs
+BuildRequires:	meson >= 0.59
+BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
-BuildRequires:	poppler-devel >= 0.18
+BuildRequires:	poppler-glib-devel >= 0.18
 BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	taglib-devel >= 1.4
 BuildRequires:	tar >= 1:1.22
@@ -61,26 +56,21 @@ kilka dodatkowych jak np. klienta FTP.
 
 %prep
 %setup -q
-%patch0 -p1
 %patch1 -p1
 
 %build
-%{__libtoolize}
-%{__aclocal} -I m4
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure \
-	--disable-static
-%{__make}
+%meson build
+
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-        DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/%{name}/{plugins/,}*.la
+# not used yet
+%{__rm} -r $RPM_BUILD_ROOT%{_includedir}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libgcmd.a
 
 %find_lang %{name} --with-gnome
 
@@ -95,17 +85,21 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS ChangeLog NEWS README TODO
+%doc AUTHORS BUGS MAINTAINERS NEWS README.md TODO
 %attr(755,root,root) %{_bindir}/gcmd-block
 %attr(755,root,root) %{_bindir}/gnome-commander
 %dir %{_libdir}/%{name}
 %dir %{_libdir}/%{name}/plugins
-%attr(755,root,root) %{_libdir}/%{name}/libgcmd.so*
-%attr(755,root,root) %{_libdir}/%{name}/plugins/libfileroller.so
+%attr(755,root,root) %{_libdir}/%{name}/plugins/libfilerollerplugin.so
+%{_libdir}/%{name}/plugins/file-roller*.xpm
+%attr(755,root,root) %{_libdir}/%{name}/plugins/libtestplugin.so
+%{_libdir}/%{name}/plugins/test-plugin.xpm
+%{_datadir}/%{name}
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-commander.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-commander.gschema.xml
 %{_datadir}/metainfo/org.gnome.gnome-commander.appdata.xml
 %{_desktopdir}/org.gnome.gnome-commander.desktop
-%{_pixmapsdir}/gnome-commander.svg
+%{_iconsdir}/hicolor/scalable/apps/gnome-commander.svg
+%{_iconsdir}/hicolor/scalable/apps/gnome-commander-symbolic.svg
 %{_pixmapsdir}/gnome-commander
 %{_mandir}/man1/gnome-commander.1*
