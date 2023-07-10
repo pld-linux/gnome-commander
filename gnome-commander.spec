@@ -1,12 +1,12 @@
 Summary:	A GNOME filemanager similar to the Midnight Commander
 Summary(pl.UTF-8):	Zarządca plików dla środowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
-Version:	1.16.0
+Version:	1.16.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	https://download.gnome.org/sources/gnome-commander/1.16/%{name}-%{version}.tar.xz
-# Source0-md5:	41629218561b078c5df7e9a525e23215
+# Source0-md5:	714ccbc8bf583223164438862c417dae
 Patch1:		%{name}-gsf.patch
 URL:		https://gcmd.github.io/
 BuildRequires:	docbook-dtd412-xml
@@ -67,10 +67,6 @@ kilka dodatkowych jak np. klienta FTP.
 rm -rf $RPM_BUILD_ROOT
 
 %ninja_install -C build
-
-# not used yet
-%{__rm} -r $RPM_BUILD_ROOT%{_includedir}
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/libgcmd.a
 
 %find_lang %{name} --with-gnome
 
