@@ -1,12 +1,12 @@
 Summary:	A GNOME filemanager similar to the Midnight Commander
 Summary(pl.UTF-8):	Zarządca plików dla środowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
-Version:	1.18.0
+Version:	1.18.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	https://download.gnome.org/sources/gnome-commander/1.18/%{name}-%{version}.tar.xz
-# Source0-md5:	a4d69ad4304f2392ce2884bf2ffcd2cc
+# Source0-md5:	92f187931012f453e8e02fd1c2283eb7
 Patch1:		%{name}-gsf.patch
 URL:		https://gcmd.github.io/
 BuildRequires:	docbook-dtd412-xml
