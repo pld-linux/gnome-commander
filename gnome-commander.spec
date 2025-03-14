@@ -1,12 +1,12 @@
 Summary:	A GNOME filemanager similar to the Midnight Commander
 Summary(pl.UTF-8):	Zarządca plików dla środowiska GNOME w stylu Midnight Commandera
 Name:		gnome-commander
-Version:	1.18.1
+Version:	1.18.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	https://download.gnome.org/sources/gnome-commander/1.18/%{name}-%{version}.tar.xz
-# Source0-md5:	92f187931012f453e8e02fd1c2283eb7
+# Source0-md5:	1c0bf80de50feb8ccf564e062005e231
 Patch1:		%{name}-gsf.patch
 URL:		https://gcmd.github.io/
 BuildRequires:	docbook-dtd412-xml
@@ -22,7 +22,7 @@ BuildRequires:	meson >= 0.59
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	poppler-glib-devel >= 0.18
-BuildRequires:	rpmbuild(macros) >= 1.592
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	taglib-devel >= 1.4
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -53,14 +53,20 @@ kilka dodatkowych jak np. klienta FTP.
 %patch -P1 -p1
 
 %build
-%meson build
+%meson \
+	-Dexiv2=enabled \
+	-Dlibgsf=enabled \
+	-Dpoppler=enabled \
+	-Dsamba=enabled \
+	-Dtaglib=enabled \
+	-Dtests=disabled
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 %find_lang %{name} --with-gnome
 
